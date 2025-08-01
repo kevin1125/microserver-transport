@@ -25,15 +25,15 @@ public class Conductor {
 
     @NotNull(message = "El nombre es obligatorio")
     @Size(min = 3, max = 50, message = "El nombre debe tener entre 3 y 50 caracteres")
-    private String nombre; // texto
+    private String nombre; 
 
     @Min(value = 18, message = "La edad mínima es 18 años")
     @Max(value = 75, message = "La edad máxima es 75 años")
-    private int edad; // numérico
+    private int edad; 
 
     @NotNull(message = "La licencia activa es obligatoria")
-    private Boolean licenciaActiva; // booleano
+    private Boolean licenciaActiva; 
 
     @Past(message = "La fecha debe ser pasada")
-    private Date fechaIngreso; // fecha
+    private Date fechaIngreso; 
 }
