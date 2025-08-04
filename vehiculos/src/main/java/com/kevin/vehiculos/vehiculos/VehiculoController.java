@@ -4,6 +4,11 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.kevin.vehiculos.conductorDTO.ConductorDTO;
+
 
 @RestController
 @RequestMapping("/vehiculos")
@@ -35,4 +40,13 @@ public class VehiculoController {
     public void delete(@PathVariable("id") Long id) {
         vehiculoService.deleteById(id);
     }
+
+    // comunicar  con el micro servicio conductor 
+
+    @GetMapping("/conductores/{id}")
+    public ConductorDTO obteneConductorById(@PathVariable("id") Long id) {
+           return vehiculoService.obteneConductorPorId(id);
+    }
+    
+    
 }

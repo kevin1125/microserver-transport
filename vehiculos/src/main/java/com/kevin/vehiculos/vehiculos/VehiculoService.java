@@ -1,6 +1,8 @@
 package com.kevin.vehiculos.vehiculos;
 
 import org.springframework.stereotype.Service;
+import com.kevin.vehiculos.conductorDTO.ConductorDTO;
+import com.kevin.vehiculos.conductorDTO.ConductorFeignApi;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,9 +11,12 @@ import java.util.Optional;
 public class VehiculoService {
 
     private final VehiculoRepository vehiculoRepository;
+    private final ConductorFeignApi conductorFeignApi;
 
-    public VehiculoService(VehiculoRepository vehiculoRepository) {
+    // ✅ Constructor con ambos argumentos
+    public VehiculoService(VehiculoRepository vehiculoRepository, ConductorFeignApi conductorFeignApi) {
         this.vehiculoRepository = vehiculoRepository;
+        this.conductorFeignApi = conductorFeignApi;
     }
 
     public List<Vehiculo> findAll() {
@@ -28,5 +33,10 @@ public class VehiculoService {
 
     public void deleteById(Long id) {
         vehiculoRepository.deleteById(id);
+    }
+
+    // Comunicación con microservicio de conductores
+    public ConductorDTO obteneConductorPorId(Long id) {
+        return conductorFeignApi.BuscarConductorPorId(id);
     }
 }

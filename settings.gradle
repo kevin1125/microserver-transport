@@ -1,0 +1,2 @@
+    rootProject.name = 'Transporte'
+    include 'apigateway', 'conductores', 'eureka', 'vehiculos','conductores'

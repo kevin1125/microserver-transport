@@ -20,6 +20,7 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+//  
 public class Vehiculo {
      @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
